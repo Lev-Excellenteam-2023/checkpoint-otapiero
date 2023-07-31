@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "data_reader.h"
+#include "data_base/student.h"
+#include "data_base/studentNode.h"
+#include "data_base/school.h"
 
 int main() {
     char * fileName;
@@ -11,8 +14,15 @@ int main() {
     data = readDataFromFile(fileName);
     if (data != NULL) {
         printf("Data read successfully\n");
-        free(data);
     }
+    struct School school;
+    IntilizeSchool(school, data);
+    deleteSchool(school);
+    printf("School deleted successfully\n");
+    free(data);
+
+
+
 
     return 0;
 }
