@@ -63,6 +63,12 @@ void deleteStudent(struct Student* student) {
 
 void printStudent(const struct Student student)
 {
+    if (student.scores == NULL)
+    {
+        printf("Student does not exist\n");
+        return;
+    }
+    
     printf("Student name: %s %s\n", student.firstName, student.lastName);
     printf("Student phone number: %s\n", student.phoneNumber);
     printf("Student level: %d\n", student.level);
