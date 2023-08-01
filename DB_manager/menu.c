@@ -228,6 +228,7 @@ void insertNewStudent(struct School *school)
     {
         printf("Failed to add student\n");
     }
+    
 }
 
 void deleteStudentOption(struct School *school)
@@ -246,7 +247,7 @@ void deleteStudentOption(struct School *school)
         return;
     }
     int result = removeStudent(school, student);
-    if (result ==10)
+    if (result == 1)
     {
         printf("Student deleted successfully\n");
     }
@@ -254,6 +255,7 @@ void deleteStudentOption(struct School *school)
     {
         printf("Failed to delete student\n");
     }
+    printStudent(*student);
 }
 void editStudentGrade(const struct School *school)
 {
@@ -288,6 +290,7 @@ void editStudentGrade(const struct School *school)
     }
     student->scores[course - 1] = grade;
     printf("Grade updated successfully\n");
+    
 }
 
 void searchStudent(const struct School *school)
@@ -461,6 +464,7 @@ int nameValidetion(const char *name)
     }
     return 1;
 }
+
 
 int phoneValidetion(const char *phone)
 {
