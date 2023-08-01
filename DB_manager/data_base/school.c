@@ -74,10 +74,12 @@ int addStudent(struct School* school, struct Student* student) {
     if (student->level > LEVELS || student->classNumber > CLASSES
         || student->level < 1 || student->classNumber < 1  )
     {
+        printf("Invalid level or class\n");
         return 0;
     }
     if (student == NULL)
     {
+        printf("Invalid student\n");
         return 0;
     }
 

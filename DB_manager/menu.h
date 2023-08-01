@@ -8,7 +8,7 @@
 void menu(struct School *school);
 
 void insertNewStudent(struct School* school);
-void deleteStudentOption(const struct School* school);
+void deleteStudentOption(struct School* school);
 void editStudentGrade(const struct School* school);
 void searchStudent(const struct School * school);
 void printAllStudents(const struct School* school);
