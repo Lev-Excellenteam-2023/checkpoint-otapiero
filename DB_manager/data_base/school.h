@@ -1,12 +1,12 @@
 #pragma once
-#include "studentNode.h"
+#include "student.h"
 
 struct School
 {
-    struct StudentNode *students[12][10];
+    struct Student* students[12][10];
 
 };
 void IntilizeSchool(struct School school,char* data);
 
 void deleteSchool(struct School school);
-void printSchool(struct School school);
+void printSchool(const struct School school);

@@ -1,13 +1,12 @@
 #include "school.h"
-#include "studentNode.h"
 #include "student.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 void IntilizeSchool(struct School school, char* data) {
+
     int i = 0;
-    struct StudentNode* node;
-    struct Student tempStudent;
+    struct Student* node;
     char* dataLine;
     char* saveptr;  // This is required for strtok_r
     char* lineCopy = (char*)malloc(sizeof(char) * 200);
@@ -15,18 +14,29 @@ void IntilizeSchool(struct School school, char* data) {
     dataLine = strtok_r(data, "\n", &saveptr);
     while (dataLine != NULL) {
         strncpy(lineCopy, dataLine, 200 - 1);
-        tempStudent = createStudentFromString(lineCopy);
+        node = createStudentFromString(lineCopy);
 
-        node = createNode(tempStudent);
-        node->next = school.students[tempStudent.level-1][tempStudent.classNumber-1];
-        i++;
+        if (school.students[node->level-1][node->classNumber-1] == NULL)
+        {
+            school.students[node->level-1][node->classNumber-1]= node;
+        }
+        else
+        {
+            struct Student* temp = school.students[node->level-1][node->classNumber-1];
+            while (temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+            temp->next = node;
+        
+        }
         dataLine = strtok_r(NULL, "\n", &saveptr);
     }
     free(lineCopy);
-    printf("School intilized successfully\n");
 }
 
 void deleteSchool(struct School school) {
+    printf("Deleting school\n");
     for (int i = 0; i < LEVELS; i++)
     {
         for (int j = 0; j < CLASSES; j++)
@@ -39,7 +49,7 @@ void deleteSchool(struct School school) {
     }
 }
 
-void printSchool(struct School school){
+void printSchool(const struct School school){
     for (int i = 0; i < LEVELS; i++)
     {
         printf("Level %d\n", i);
@@ -48,12 +58,18 @@ void printSchool(struct School school){
             printf("Class %d\n", j);
             if (school.students[i][j] != NULL)
             {
-                struct StudentNode* temp = school.students[i][j];
+                struct Student* temp = school.students[i][j];
+                printf("NULL\n");
+
                 while (temp != NULL)
                 {
-                    printStudent(temp->student);
+                    printStudent(*temp);
                     temp = temp->next;
                 }
+            }
+            else
+            {
+                printf("NULL\n");
             }
         }
     }

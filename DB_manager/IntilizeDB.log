@@ -1,159 +1,85 @@
-==4329== Memcheck, a memory error detector
-==4329== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==4329== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==4329== Command: ./main
-==4329== Parent PID: 3800
-==4329== 
-==4329== Invalid read of size 1
-==4329==    at 0x490D9F3: strtok_r (strtok_r.c:47)
-==4329==    by 0x109B67: IntilizeSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109394: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329==  Address 0x54486fc is 0 bytes after a block of size 6,137,532 alloc'd
-==4329==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4329==    by 0x10948C: readDataFromFile (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109343: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329== 
-==4329== Conditional jump or move depends on uninitialised value(s)
-==4329==    at 0x109BF5: deleteSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1093C2: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329==  Uninitialised value was created by a stack allocation
-==4329==    at 0x109311: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329== 
-==4329== Conditional jump or move depends on uninitialised value(s)
-==4329==    at 0x1099F6: deleteLinkedList (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109C1F: deleteSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1093C2: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329==  Uninitialised value was created by a stack allocation
-==4329==    at 0x109311: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329== 
-==4329== Use of uninitialised value of size 8
-==4329==    at 0x1099FC: deleteLinkedList (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109C1F: deleteSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1093C2: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329==  Uninitialised value was created by a stack allocation
-==4329==    at 0x109311: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329== 
-==4329== Invalid read of size 8
-==4329==    at 0x1099FC: deleteLinkedList (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109C1F: deleteSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1093C2: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329==  Address 0x100000057 is not stack'd, malloc'd or (recently) free'd
-==4329== 
-==4329== 
-==4329== Process terminating with default action of signal 11 (SIGSEGV)
-==4329==  Access not within mapped region at address 0x100000057
-==4329==    at 0x1099FC: deleteLinkedList (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109C1F: deleteSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1093C2: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329==  If you believe this happened as a result of a stack
-==4329==  overflow in your program's main thread (unlikely but
-==4329==  possible), you can try to increase the size of the
-==4329==  main thread stack using the --main-stacksize= flag.
-==4329==  The main thread stack size used in this run was 8388608.
-==4329== 
-==4329== HEAP SUMMARY:
-==4329==     in use at exit: 19,738,556 bytes in 200,002 blocks
-==4329==   total heap usage: 200,005 allocs, 3 frees, 19,743,324 bytes allocated
-==4329== 
-==4329== 40 bytes in 1 blocks are still reachable in loss record 1 of 5
-==4329==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4329==    by 0x109721: createStudentFromString (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109AB0: IntilizeSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109394: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329== 
-==4329== 1,024 bytes in 1 blocks are still reachable in loss record 2 of 5
-==4329==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4329==    by 0x48DE0F3: _IO_file_doallocate (filedoalloc.c:101)
-==4329==    by 0x48EE07F: _IO_doallocbuf (genops.c:347)
-==4329==    by 0x48ECFDF: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
-==4329==    by 0x48EB7B4: _IO_new_file_xsputn (fileops.c:1243)
-==4329==    by 0x48EB7B4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==4329==    by 0x48E0A8F: puts (ioputs.c:40)
-==4329==    by 0x109363: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329== 
-==4329== 3,999,960 bytes in 99,999 blocks are indirectly lost in loss record 3 of 5
-==4329==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4329==    by 0x109721: createStudentFromString (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109AB0: IntilizeSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109394: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329== 
-==4329== 6,137,532 bytes in 1 blocks are still reachable in loss record 4 of 5
-==4329==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4329==    by 0x10948C: readDataFromFile (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109343: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329== 
-==4329== 13,599,960 (9,600,000 direct, 3,999,960 indirect) bytes in 100,000 blocks are definitely lost in loss record 5 of 5
-==4329==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4329==    by 0x109973: createNode (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109B0B: IntilizeSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x109394: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==4329==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==4329==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==4329==    by 0x1FFEFFFC07: ???
-==4329==    by 0x37: ???
-==4329== 
-==4329== LEAK SUMMARY:
-==4329==    definitely lost: 9,600,000 bytes in 100,000 blocks
-==4329==    indirectly lost: 3,999,960 bytes in 99,999 blocks
-==4329==      possibly lost: 0 bytes in 0 blocks
-==4329==    still reachable: 6,138,596 bytes in 3 blocks
-==4329==         suppressed: 0 bytes in 0 blocks
-==4329== 
-==4329== For lists of detected and suppressed errors, rerun with: -s
-==4329== ERROR SUMMARY: 7 errors from 6 contexts (suppressed: 0 from 0)
+==13335== Memcheck, a memory error detector
+==13335== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==13335== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==13335== Command: ./main
+==13335== Parent PID: 12626
+==13335== 
+==13335== Invalid read of size 1
+==13335==    at 0x490D9F3: strtok_r (strtok_r.c:47)
+==13335==    by 0x109A9F: IntilizeSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1093FA: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
+==13335==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
+==13335==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1FFEFFFC07: ???
+==13335==    by 0x37: ???
+==13335==  Address 0x54486fc is 0 bytes after a block of size 6,137,532 alloc'd
+==13335==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13335==    by 0x10952F: readDataFromFile (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x109343: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
+==13335==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
+==13335==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1FFEFFFC07: ???
+==13335==    by 0x37: ???
+==13335== 
+==13335== 
+==13335== HEAP SUMMARY:
+==13335==     in use at exit: 12,800,000 bytes in 200,000 blocks
+==13335==   total heap usage: 200,005 allocs, 5 frees, 18,943,324 bytes allocated
+==13335== 
+==13335== 40 bytes in 1 blocks are still reachable in loss record 1 of 4
+==13335==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13335==    by 0x10974A: createStudentFromString (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1099BC: IntilizeSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1093FA: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
+==13335==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
+==13335==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1FFEFFFC07: ???
+==13335==    by 0x37: ???
+==13335== 
+==13335== 3,999,960 bytes in 99,999 blocks are indirectly lost in loss record 2 of 4
+==13335==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13335==    by 0x10974A: createStudentFromString (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1099BC: IntilizeSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1093FA: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
+==13335==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
+==13335==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1FFEFFFC07: ???
+==13335==    by 0x37: ???
+==13335== 
+==13335== 8,789,440 bytes in 99,880 blocks are indirectly lost in loss record 3 of 4
+==13335==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13335==    by 0x10958B: createStudent (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1097DD: createStudentFromString (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1099BC: IntilizeSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1093FA: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
+==13335==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
+==13335==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1FFEFFFC07: ???
+==13335==    by 0x37: ???
+==13335== 
+==13335== 12,799,960 (10,560 direct, 12,789,400 indirect) bytes in 120 blocks are definitely lost in loss record 4 of 4
+==13335==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13335==    by 0x10958B: createStudent (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1097DD: createStudentFromString (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1099BC: IntilizeSchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1093FA: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
+==13335==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
+==13335==    by 0x109244: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==13335==    by 0x1FFEFFFC07: ???
+==13335==    by 0x37: ???
+==13335== 
+==13335== LEAK SUMMARY:
+==13335==    definitely lost: 10,560 bytes in 120 blocks
+==13335==    indirectly lost: 12,789,400 bytes in 199,879 blocks
+==13335==      possibly lost: 0 bytes in 0 blocks
+==13335==    still reachable: 40 bytes in 1 blocks
+==13335==         suppressed: 0 bytes in 0 blocks
+==13335== 
+==13335== For lists of detected and suppressed errors, rerun with: -s
+==13335== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

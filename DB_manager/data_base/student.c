@@ -2,26 +2,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-struct Student createStudent(char* firstName, char* lastName,char* phonNumber, int level , int classId, int* scores) {
-    struct Student student;
-    student.level = level;
-    student.classNumber = classId;
-    student.scores = scores;
-    strncpy(student.firstName, firstName, sizeof(student.firstName) - 1);
-    strncpy(student.lastName, lastName, sizeof(student.lastName) - 1);
-    strncpy(student.phoneNumber, phonNumber, sizeof(student.phoneNumber) - 1);
-    student.firstName[sizeof(student.firstName) - 1] = '\0';
-    student.lastName[sizeof(student.lastName) - 1] = '\0';
-    student.phoneNumber[sizeof(student.phoneNumber) - 1] = '\0';
+struct Student* createStudent(char* firstName, char* lastName,char* phoneNumber, int level , int classId, int* scores) {
+    struct Student* student;
+
+    student = (struct Student*)malloc(sizeof(struct Student));
+    student->level = level;
+    student->classNumber = classId;
+    student->scores = scores;
+    strncpy(student->firstName, firstName, sizeof(student->firstName) - 1);
+
+    strncpy(student->lastName, lastName, sizeof(student->lastName) - 1);
+    strncpy(student->phoneNumber, phoneNumber, sizeof(student->phoneNumber) - 1);
+    student->firstName[sizeof(student->firstName) - 1] = '\0';
+    student->lastName[sizeof(student->lastName) - 1] = '\0';
+    student->phoneNumber[sizeof(student->phoneNumber) - 1] = '\0';
+    student->next = NULL;
 
 
     return student;
 
 } 
 
-struct Student createStudentFromString(const char* data) {
+struct Student* createStudentFromString(const char* data) {
 
-    struct Student student;
+    struct Student* student;
     char firstName[20];
     char lastName[20];
     char phoneNumber[20];
@@ -40,6 +44,7 @@ struct Student createStudentFromString(const char* data) {
     for (int i = 0; i < 10; i++) {
         scores[i] = atoi(strtok(NULL, " "));
     }
+
     student = createStudent(firstName, lastName, phoneNumber , level, classId, scores);
 
     return student; 
@@ -56,7 +61,7 @@ void deleteStudent(struct Student* student) {
     student->scores = NULL;
 }
 
-void printStudent(struct Student student)
+void printStudent(const struct Student student)
 {
     printf("Student name: %s %s\n", student.firstName, student.lastName);
     printf("Student phone number: %s\n", student.phoneNumber);
@@ -69,3 +74,12 @@ void printStudent(struct Student student)
     }
 }
 
+void deleteLinkedList(struct Student* node) {
+    if (node == NULL)
+    {
+        return;
+    }
+    deleteLinkedList(node->next);
+    free(node);
+}
+    
