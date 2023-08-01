@@ -79,7 +79,10 @@ void deleteLinkedList(struct Student* node) {
     {
         return;
     }
+
     deleteLinkedList(node->next);
+    deleteStudent(node);
     free(node);
+    node = NULL;
 }
     

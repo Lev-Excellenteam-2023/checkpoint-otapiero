@@ -24,7 +24,7 @@ int main() {
     }
     IntilizeSchool(&school, data);
     printf("school initialized successfully\n");
-    printSchool(school);
+    //printSchool(school);
     deleteSchool(school);
     printf("School deleted successfully\n");
     free(data);

@@ -43,7 +43,7 @@ void deleteSchool(struct School school) {
         {
             if (school.students[i][j] != NULL)
             {
-               deleteLinkedList(school.students[i][j]);
+                deleteLinkedList(school.students[i][j]);
             }
         }
     }
