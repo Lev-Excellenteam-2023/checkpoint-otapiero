@@ -3,6 +3,7 @@
 #include "data_reader.h"
 #include "data_base/student.h"
 #include "data_base/school.h"
+#include "menu.h"  
 
 int main() {
     char * fileName;
@@ -24,7 +25,7 @@ int main() {
     }
     InitializeSchool(&school, data);
     printf("school initialized successfully\n");
-    //printSchool(school);
+    menu(&school);
     deleteSchool(school);
     printf("School deleted successfully\n");
     free(data);
