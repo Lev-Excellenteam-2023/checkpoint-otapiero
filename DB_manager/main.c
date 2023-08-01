@@ -20,9 +20,9 @@ int main() {
         for (int j = 0; j < 10; j++)
         {
             school.students[i][j] = NULL;
-        }
+        }   
     }
-    IntilizeSchool(school, data);
+    IntilizeSchool(&school, data);
     printf("school initialized successfully\n");
     printSchool(school);
     deleteSchool(school);

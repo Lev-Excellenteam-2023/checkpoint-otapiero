@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void IntilizeSchool(struct School school, char* data) {
+void IntilizeSchool(struct School* school, char* data) {
 
     int i = 0;
     struct Student* node;
@@ -16,13 +16,13 @@ void IntilizeSchool(struct School school, char* data) {
         strncpy(lineCopy, dataLine, 200 - 1);
         node = createStudentFromString(lineCopy);
 
-        if (school.students[node->level-1][node->classNumber-1] == NULL)
+        if (school->students[node->level-1][node->classNumber-1] == NULL)
         {
-            school.students[node->level-1][node->classNumber-1]= node;
+            school->students[node->level-1][node->classNumber-1]= node;
         }
         else
         {
-            struct Student* temp = school.students[node->level-1][node->classNumber-1];
+            struct Student* temp = school->students[node->level-1][node->classNumber-1];
             while (temp->next != NULL)
             {
                 temp = temp->next;
@@ -59,17 +59,11 @@ void printSchool(const struct School school){
             if (school.students[i][j] != NULL)
             {
                 struct Student* temp = school.students[i][j];
-                printf("NULL\n");
-
                 while (temp != NULL)
                 {
                     printStudent(*temp);
                     temp = temp->next;
                 }
-            }
-            else
-            {
-                printf("NULL\n");
             }
         }
     }
