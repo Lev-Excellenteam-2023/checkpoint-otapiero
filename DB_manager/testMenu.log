@@ -1,35 +1,35 @@
-==17664== Memcheck, a memory error detector
-==17664== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==17664== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==17664== Command: ./main
-==17664== Parent PID: 3802
-==17664== 
-==17664== 
-==17664== HEAP SUMMARY:
-==17664==     in use at exit: 10,560 bytes in 120 blocks
-==17664==   total heap usage: 400,308 allocs, 400,188 frees, 31,763,677 bytes allocated
-==17664== 
-==17664== 10,560 bytes in 120 blocks are definitely lost in loss record 1 of 1
-==17664==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==17664==    by 0x1096A6: createStudent (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==17664==    by 0x109B1B: copyStudent (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==17664==    by 0x10AB12: copySchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==17664==    by 0x10A81A: findTopNStudentsPerCourse (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==17664==    by 0x10B901: printTopNStudentsPerCourse (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==17664==    by 0x10ADAD: menu (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==17664==    by 0x109520: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==17664==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
-==17664==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
-==17664==    by 0x109364: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
-==17664==    by 0x1FFEFFFC07: ???
-==17664==    by 0x37: ???
-==17664== 
-==17664== LEAK SUMMARY:
-==17664==    definitely lost: 10,560 bytes in 120 blocks
-==17664==    indirectly lost: 0 bytes in 0 blocks
-==17664==      possibly lost: 0 bytes in 0 blocks
-==17664==    still reachable: 0 bytes in 0 blocks
-==17664==         suppressed: 0 bytes in 0 blocks
-==17664== 
-==17664== For lists of detected and suppressed errors, rerun with: -s
-==17664== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==18972== Memcheck, a memory error detector
+==18972== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==18972== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==18972== Command: ./main
+==18972== Parent PID: 3802
+==18972== 
+==18972== 
+==18972== HEAP SUMMARY:
+==18972==     in use at exit: 10,560 bytes in 120 blocks
+==18972==   total heap usage: 400,308 allocs, 400,188 frees, 31,763,677 bytes allocated
+==18972== 
+==18972== 10,560 bytes in 120 blocks are definitely lost in loss record 1 of 1
+==18972==    at 0x4843828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==18972==    by 0x1096A6: createStudent (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==18972==    by 0x109B1B: copyStudent (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==18972==    by 0x10AB12: copySchool (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==18972==    by 0x10A81A: findTopNStudentsPerCourse (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==18972==    by 0x10B901: printTopNStudentsPerCourse (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==18972==    by 0x10ADAD: menu (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==18972==    by 0x109520: main (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==18972==    by 0x4889A8F: __libc_start_call_main (libc_start_call_main.h:58)
+==18972==    by 0x4889B48: __libc_start_main@@GLIBC_2.34 (libc-start.c:360)
+==18972==    by 0x109364: _start (in /home/ouriel/Desktop/Bootcamp/checkPoint/School_DB_Project/DB_manager/main)
+==18972==    by 0x1FFEFFFC07: ???
+==18972==    by 0x37: ???
+==18972== 
+==18972== LEAK SUMMARY:
+==18972==    definitely lost: 10,560 bytes in 120 blocks
+==18972==    indirectly lost: 0 bytes in 0 blocks
+==18972==      possibly lost: 0 bytes in 0 blocks
+==18972==    still reachable: 0 bytes in 0 blocks
+==18972==         suppressed: 0 bytes in 0 blocks
+==18972== 
+==18972== For lists of detected and suppressed errors, rerun with: -s
+==18972== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
