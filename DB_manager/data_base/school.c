@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void IntilizeSchool(struct School* school, char* data) {
+void InitializeSchool(struct School* school, char* data) {
 
     int i = 0;
     struct Student* node;
