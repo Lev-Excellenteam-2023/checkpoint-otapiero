@@ -115,6 +115,7 @@ int removeStudent(struct School* school, struct Student* student) {
         school->students[student->level-1][student->classNumber-1] = student->next;
         deleteStudent(student);
         free(student);
+        student = NULL;
         return 1;
     }
     struct Student* temp = school->students[student->level-1][student->classNumber-1];
@@ -123,9 +124,8 @@ int removeStudent(struct School* school, struct Student* student) {
         if (temp->next == student)
         {
             temp->next = student->next;
-            deleteStudent(student);
-            free(student);
-            student = NULL;
+            student->next = NULL;
+            deleteLinkedList(student);
             return 1;
         }
         temp = temp->next;

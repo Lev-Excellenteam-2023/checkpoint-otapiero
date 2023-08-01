@@ -19,4 +19,5 @@ void printTopNStudentsPerCourse(const struct School* school);
 int readIntegerInput();
 int nameValidetion(const char * name);
 int phoneValidetion(const char * phone);
-
+size_t get_input(char* dst, size_t max_size);
+void clearBuffer();
