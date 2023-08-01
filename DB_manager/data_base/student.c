@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-struct Student* createStudent(char* firstName, char* lastName,char* phoneNumber, int level , int classId, int* scores) {
+struct Student* createStudent(const char* firstName, const char* lastName, const char* phoneNumber, int level , int classId, int* scores) {
     struct Student* student;
 
     student = (struct Student*)malloc(sizeof(struct Student));
@@ -85,4 +85,28 @@ void deleteLinkedList(struct Student* node) {
     free(node);
     node = NULL;
 }
+
+int gradeAverage(const struct Student student) {
+    int sum = 0;
+    for (int i = 0; i < MAX_COURSES; i++)
+    {
+        sum += student.scores[i];
+    }
+    return sum / MAX_COURSES;
+}
+
+struct Student* copyStudent(const struct Student* student) {
+    struct Student* copy = createStudent(student->firstName, student->lastName, student->phoneNumber, student->level, 
+     student->classNumber, copyScores(student->scores));
+
+    return copy;
+}
     
+int * copyScores(int* scores) {
+    int* copy = (int*)malloc(sizeof(int) * MAX_COURSES);
+    for (int i = 0; i < MAX_COURSES; i++)
+    {
+        copy[i] = scores[i];
+    }
+    return copy;
+}
