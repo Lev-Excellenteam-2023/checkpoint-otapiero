@@ -22,7 +22,7 @@ int main() {
             school.students[i][j] = NULL;
         }   
     }
-    IntilizeSchool(&school, data);
+    InitializeSchool(&school, data);
     printf("school initialized successfully\n");
     //printSchool(school);
     deleteSchool(school);
