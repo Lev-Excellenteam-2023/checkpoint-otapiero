@@ -81,73 +81,51 @@ void menu(struct School *school)
         {
 
         case Insert:
-            fflush(stdin);
             insertNewStudent(_school);
-            fflush(stdin);
 
 
             break;
 
         case Delete:
-            fflush(stdin);
             deleteStudentOption(_school);
-            fflush(stdin);
-
 
             break;
 
         case Edit:
-            fflush(stdin);
             editStudentGrade(_school);
-            fflush(stdin);
-
 
             break;
 
         case Search:
-            fflush(stdin);
             searchStudent(_school);
-            fflush(stdin);
 
             break;
 
         case Showall:
-            fflush(stdin);
             printAllStudents(_school);
-            fflush(stdin);
 
 
             break;
 
         case Top10:
-            fflush(stdin);
             printTopNStudentsPerCourse(_school);
-            fflush(stdin);
 
             break;
 
         case UnderperformedStudents:
-            fflush(stdin);
 
             printUnderperformedStudents(_school);
-            fflush(stdin);
-
-
             break;
 
         case Average:
-            fflush(stdin);
             printAverage(_school);
-            fflush(stdin);
 
 
             break;
 
         case Export:
 
-            fflush(stdin);
             exportDatabase(_school);
-            fflush(stdin);
 
 
             break;
@@ -168,8 +146,6 @@ void menu(struct School *school)
 
             break;
         }
-        fflush(stdin);
-
     } while (input != Exit);
 }
 
@@ -191,7 +167,7 @@ void insertNewStudent(struct School *school)
     {
 
         printf("Enter student's last name: ");
-        (lastName, sizeof(lastName), stdin);
+        fgets(lastName, sizeof(lastName), stdin);
         lastName[strcspn(lastName, "\n")] = '\0'; // Remove trailing newline
     } while (nameValidetion(lastName) == 0);
 
@@ -212,7 +188,7 @@ void insertNewStudent(struct School *school)
 
     for (int i = 0; i < MAX_COURSES; i++)
     {
-        printf("Enter student's )score in course %d: ", (i + 1));
+        printf("Enter student score in course %d: ", (i + 1));
         scanf("%d", &scores[i]);
     }
 
@@ -228,16 +204,22 @@ void insertNewStudent(struct School *school)
     {
         printf("Failed to add student\n");
     }
+    clearBuffer();
 }
-
 void deleteStudentOption(struct School *school)
 {
     char phoneNumber[MAX_PHONE_LENGTH];
+    size_t len = 0;
     do
     {
         printf("Enter student's phone number: ");
-        fgets(phoneNumber, sizeof(phoneNumber), stdin);
-        phoneNumber[strcspn(phoneNumber, "\n")] = '\0'; // Remove trailing newline
+        len = get_input(phoneNumber, MAX_PHONE_LENGTH);
+        if (len == MAX_PHONE_LENGTH )
+        {
+            printf("Too many characters,Press Enter to continue... \n");
+            clearBuffer();
+            phoneNumber[0] = 'a';
+        }
     } while (phoneValidetion(phoneNumber) == 0);
     struct Student *student = findStudentByPhone(*school, phoneNumber);
     if (student == NULL)
@@ -246,9 +228,10 @@ void deleteStudentOption(struct School *school)
         return;
     }
     int result = removeStudent(school, student);
-    if (result ==10)
+    if (result == 1)
     {
         printf("Student deleted successfully\n");
+        student = NULL;
     }
     else
     {
@@ -257,13 +240,20 @@ void deleteStudentOption(struct School *school)
 }
 void editStudentGrade(const struct School *school)
 {
+    size_t len = 0;
     char phoneNumber[MAX_PHONE_LENGTH];
     do
     {
         printf("Enter student's phone number: ");
-        fgets(phoneNumber, sizeof(phoneNumber), stdin);
-        phoneNumber[strcspn(phoneNumber, "\n")] = '\0'; // Remove trailing newline
+        len = get_input(phoneNumber, MAX_PHONE_LENGTH);
+        if (len == MAX_PHONE_LENGTH )
+        {
+            printf("Too many characters, Press Enter to continue... \n");
+            clearBuffer();
+            phoneNumber[0] = 'a';
+        }
     } while (phoneValidetion(phoneNumber) == 0);
+    
     struct Student *student = findStudentByPhone(*school, phoneNumber);
     if (student == NULL)
     {
@@ -288,16 +278,24 @@ void editStudentGrade(const struct School *school)
     }
     student->scores[course - 1] = grade;
     printf("Grade updated successfully\n");
+    clearBuffer();
+    
 }
 
 void searchStudent(const struct School *school)
 {
     char phoneNumber[MAX_PHONE_LENGTH];
+    size_t len = 0;
     do
     {
         printf("Enter student's phone number: ");
-        fgets(phoneNumber, sizeof(phoneNumber), stdin);
-        phoneNumber[strcspn(phoneNumber, "\n")] = '\0'; // Remove trailing newline
+        len = get_input(phoneNumber, MAX_PHONE_LENGTH);
+        if (len == MAX_PHONE_LENGTH )
+        {
+            printf("Too many characters, Press Enter to continue... \n");
+            clearBuffer();
+            phoneNumber[0] = 'a';
+        }
     } while (phoneValidetion(phoneNumber) == 0);
     struct Student *student = findStudentByPhone(*school, phoneNumber);
     if (student == NULL)
@@ -333,6 +331,7 @@ void printAverage(const struct School *school)
     }
     int average = gradeAverageByClass(*school, level, classId);
     printf("Average grade for level %d class %d is %d\n", level, classId, average);
+    clearBuffer();
 }
 
 void exportDatabase(const struct School *school)
@@ -376,10 +375,11 @@ void printTopNStudentsPerCourse(const struct School *school)
     int course;
     printf("Enter course number: ");
     course = readIntegerInput();
-    if (course < 1 || course > 10)
+    
+    while (course < 1 || course > 10)
     {
         printf("Invalid course number\n");
-        return;
+        course = readIntegerInput();
     }
     struct TopTenStudents topTenStudents;
     for (int i = 0; i < LEVELS; i++)
@@ -423,6 +423,7 @@ void printTopNStudentsPerCourse(const struct School *school)
             topTenStudents.topStudents[i][j] = NULL;
         }
     }
+    clearBuffer();
 }
 
 int readIntegerInput()
@@ -462,6 +463,7 @@ int nameValidetion(const char *name)
     return 1;
 }
 
+
 int phoneValidetion(const char *phone)
 {
     // check if the phone number is valid (only numbers)
@@ -477,3 +479,58 @@ int phoneValidetion(const char *phone)
     }
     return 1;
 }
+
+
+/*
+
+ * The function gets input from the user and ensures the input
+
+ * doesn't exceed max_size. if yes - it will shrink it and will add \0.
+
+ */
+
+size_t get_input(char* dst, size_t max_size) {
+
+    char* input = NULL;
+
+    size_t len = 0;
+
+    size_t len_size = 0;
+
+    len_size = getline(&input, &len, stdin);
+
+    if (len_size == -1)
+
+        return -1;
+
+    if (len_size < max_size) {
+
+        input[len_size - 1] = '\0';
+
+        strncpy(dst, input, len_size);
+
+    }
+
+    else {
+
+        input[max_size - 1] = '\0';
+
+        strncpy(dst, input, max_size);
+
+        len_size = max_size;
+
+    }
+
+    free(input);
+
+    return len_size;
+
+}
+void clearBuffer()
+{
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
+}
+
+

@@ -96,15 +96,26 @@ int addStudent(struct School* school, struct Student* student) {
 }
 
 int removeStudent(struct School* school, struct Student* student) {
-    if (student == NULL|| school->students[student->level-1][student->classNumber-1] == NULL)
+    if (student == NULL)
     {
+        printf("Invalid student\n");
+        return 0;
+    }
+    if (school->students[student->level-1][student->classNumber-1] == NULL)
+    {
+        printf("No students in this class\n");
+        deleteStudent(student);
+        free(student);
         return 0;
     }
    
     if (school->students[student->level-1][student->classNumber-1] == student)
     {
+
         school->students[student->level-1][student->classNumber-1] = student->next;
         deleteStudent(student);
+        free(student);
+        student = NULL;
         return 1;
     }
     struct Student* temp = school->students[student->level-1][student->classNumber-1];
@@ -113,12 +124,14 @@ int removeStudent(struct School* school, struct Student* student) {
         if (temp->next == student)
         {
             temp->next = student->next;
-            deleteStudent(student);
+            student->next = NULL;
+            deleteLinkedList(student);
             return 1;
         }
         temp = temp->next;
 
     }
+    temp = NULL;
     return 0;
 }
 
