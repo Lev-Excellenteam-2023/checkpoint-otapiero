@@ -14,6 +14,12 @@ int main() {
 
    
     data = readDataFromFile(fileName);
+
+     encrypt_to_file(data, KEY, IV, "encrypted.txt");
+    printf("Data encrypted successfully\n");
+    decrypt_from_file("encrypted.txt", "decrypted.txt", KEY, IV, data);
+    printf("Data decrypted successfully\n");
+    printf("school initialized successfully\n");
     if (data != NULL) {
         printf("Data read successfully\n");
     }
@@ -26,12 +32,8 @@ int main() {
         }   
     }
     InitializeSchool(&school, data);
-    //encrypt_to_file(data, KEY, IV, "encrypted.txt");
-    //printf("Data encrypted successfully\n");
-    //decrypt_from_file("encrypted.txt", "decrypted.txt", KEY, IV, data);
-    //printf("Data decrypted successfully\n");
-    printf("school initialized successfully\n");
-    menu(&school);
+   
+   // menu(&school);
     deleteSchool(school);
     printf("School deleted successfully\n");
     free(data);
