@@ -203,6 +203,8 @@ void insertNewStudent(struct School *school)
     else
     {
         printf("Failed to add student\n");
+        student->next = NULL;
+        deleteLinkedList(student);
     }
     clearBuffer();
 }

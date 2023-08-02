@@ -19,7 +19,7 @@ struct Student* createStudent(const char* firstName, const char* lastName, const
 
 struct Student* createStudentFromString(const char* data);
 
-void deleteStudent(struct Student* student);
+void deleteScores(struct Student* student);
 void printStudent(const struct Student student);
 
 void deleteLinkedList(struct Student* head);

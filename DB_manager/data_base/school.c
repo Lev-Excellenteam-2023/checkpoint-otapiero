@@ -104,7 +104,7 @@ int removeStudent(struct School* school, struct Student* student) {
     if (school->students[student->level-1][student->classNumber-1] == NULL)
     {
         printf("No students in this class\n");
-        deleteStudent(student);
+        deleteScores(student);
         free(student);
         return 0;
     }
@@ -113,7 +113,7 @@ int removeStudent(struct School* school, struct Student* student) {
     {
 
         school->students[student->level-1][student->classNumber-1] = student->next;
-        deleteStudent(student);
+        deleteScores(student);
         free(student);
         student = NULL;
         return 1;

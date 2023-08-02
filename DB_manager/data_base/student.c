@@ -51,7 +51,7 @@ struct Student* createStudentFromString(const char* data) {
 }
 
 
-void deleteStudent(struct Student* student) {
+void deleteScores(struct Student* student) {
     if (student == NULL) {
         return;
     }
@@ -87,7 +87,7 @@ void deleteLinkedList(struct Student* node) {
     }
 
     deleteLinkedList(node->next);
-    deleteStudent(node);
+    deleteScores(node);
     free(node);
     node = NULL;
 }
