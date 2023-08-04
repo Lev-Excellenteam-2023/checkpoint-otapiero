@@ -26,6 +26,7 @@ int main() {
         }   
     }
     InitializeSchool(&school, data);
+    // TODO: fix the decryption
     //encrypt_to_file(data, KEY, IV, "encrypted.txt");
     //printf("Data encrypted successfully\n");
     //decrypt_from_file("encrypted.txt", "decrypted.txt", KEY, IV, data);
